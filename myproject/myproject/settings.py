@@ -132,7 +132,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-jhi8-zxkjp9ea^$y+19!(
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 # Allow Render's domain and localhost
-ALLOWED_HOSTS = ['.render.com', 'localhost', '127.0.0.1']
+# ALLOWED_HOSTS = ['plant-disease-detector-1-kmhj.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['plant-disease-detector-1-kmhj.onrender.com', '127.0.0.1', 'localhost']
+# ALLOWED_HOSTS = ['.render.com', 'localhost', '127.0.0.1']
 # ---------------------------
 
 INSTALLED_APPS = [
