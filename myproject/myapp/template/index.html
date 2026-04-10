@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Detector</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #d4fc79, #96e6a1);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        h1 {
+            color: #2e7d32;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .upload-box {
+            border: 2px dashed #4caf50;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            background: #f9fff9;
+        }
+
+        input[type="file"] {
+            margin: 15px 0;
+            width: 100%;
+        }
+
+        button {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #388e3c;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 12px;
+            background: #f1fff1;
+            border-left: 5px solid #4caf50;
+            text-align: left;
+        }
+
+        .result h2 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .confidence {
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .status {
+            color: #4caf50;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .emoji {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="emoji">🌿</div>
+        <h1>Plant Disease Detector</h1>
+        <p>Upload a plant leaf image and let AI detect the disease instantly.</p>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="upload-box">
+                <input type="file" name="image" required>
+            </div>
+            <button type="submit">🔍 Predict Disease</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <div class="status">✅ AI Model Executed Successfully</div>
+            <h2>🩺 Prediction: {{ prediction }}</h2>
+            <div class="confidence">📊 Confidence: {{ confidence }}%</div>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        {% if prediction %}
+        console.log("✅ MODEL EXECUTED SUCCESSFULLY");
+        console.log("Prediction: {{ prediction }}");
+        console.log("Confidence: {{ confidence }}%");
+        {% endif %}
+    </script>
+
+</body>
+</html>

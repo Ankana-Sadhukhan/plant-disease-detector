@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: plant-disease-detector
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
+    startCommand: gunicorn myproject.wsgi
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: myproject.settings
+      - key: SECRET_KEY
+        value: 'please-set-a-secret-key'
+      - key: DEBUG
+        value: 'False'
+      - key: DISABLE_COLLECTSTATIC
+        value: '0'
