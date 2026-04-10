@@ -9,6 +9,7 @@ from tensorflow.keras.models import load_model
 from django.conf import settings
 
 # Load model only once for fast prediction
+MODEL_PATH = os.path.join(settings.BASE_DIR, 'myapp', 'model', 'plant_disease_best.keras')
 model = load_model('myapp/model/plant_disease_best.keras')
 
 # class_names = [
