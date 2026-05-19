@@ -155,7 +155,7 @@ Example categories may include:
 
 ### Prediction Result
 
-*Add prediction result screenshots here*
+*Comming Soon*
 
 ---
 
