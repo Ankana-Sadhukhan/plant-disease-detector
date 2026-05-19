@@ -151,7 +151,7 @@ Example categories may include:
 
 ### Home Page
 
-*Add project screenshots here*
+*Comming Soon*
 
 ### Prediction Result
 
